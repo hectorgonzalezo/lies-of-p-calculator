@@ -1,0 +1,18 @@
+@import "variables";
+
+
+#app header {
+  padding: 15px;
+  background-color: $prussian-blue;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media (max-width: 600px) {
+
+  #App header{
+    background-color: black;
+}
+}
