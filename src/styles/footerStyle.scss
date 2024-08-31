@@ -1,0 +1,19 @@
+@import "variables";
+
+body footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  gap: 2vw;
+  background-color: $sky-blue;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.5rem;
+}
+
+#github-logo {
+  height: 30px;
+}
