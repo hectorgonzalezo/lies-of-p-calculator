@@ -1,0 +1,47 @@
+@import "variables";
+
+main {
+  background-color: black;
+  color: $light-blue;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  gap: 2rem;
+  * {
+    gap: 2rem;
+  }
+}
+
+#build-calculator {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.calc-module {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  padding: 1rem;
+  background-color: $prussian-blue;
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .calc-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    outline: dashed red;
+
+    img {
+      width: 2rem;
+    }
+  }
+}

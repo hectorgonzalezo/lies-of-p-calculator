@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import Header from './components/Header';
+import BuildCalculator from './components/BuildCalculator';
 import Footer from './components/Footer';
 import './styles/app.scss';
 
 function App() {
 
   return (
-    <body id="app">
+    <div id="app">
       <Header />
+      <BuildCalculator />
       <Footer projectName="lies-of-p-calculator" />
-    </body>
+    </div>
   );
 }
 

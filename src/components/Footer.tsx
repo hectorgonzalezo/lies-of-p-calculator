@@ -1,4 +1,3 @@
-import React from "react";
 import githubLogo from "../assets/github-logo.png";
 import "../styles/footerStyle.scss";
 
