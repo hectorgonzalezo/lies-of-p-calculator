@@ -33,3 +33,13 @@ export function calculateHP(value: number) {
   // 62 => +5
   // 63-
 }
+
+export function calculateWeight(value: number) {
+  const baseLevel = 7;
+  const baseValue = 61.2;
+  if (value <= baseLevel){
+    return baseValue
+  }
+
+  return ((value - baseLevel) * 3) + baseValue
+}
