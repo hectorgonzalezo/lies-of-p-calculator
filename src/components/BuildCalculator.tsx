@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import NumberInput from './NumberInput';
 import NumberOutput from './NumberOutput';
+import SelectField from './SelectField';
 
 import { calculateHP } from '../calculations/statCalculations';
 
@@ -21,10 +22,46 @@ function BuildCalculator() {
   const [motivity, setMotivity] = useState(minMotivity);
   const [technique, setTechnique] = useState(minTechnique);
   const [advance, setAdvance] = useState(minAdvance);
+  const [startingClass, setStartingClass] = useState<number | null>(null);
 
+  const selectClass = (e: ChangeEvent<HTMLSelectElement>) => {
+    setStartingClass(Number(e.target.value));
+  }
+
+  // update resulting stats when current stat changes
   useEffect(() => {
     setHp(calculateHP(vitality))
-  }, [vitality])
+  }, [vitality]);
+
+  // Change stat values when starting class changes
+  useEffect(() => {
+    switch(startingClass) {
+      case 0:
+        setVitality(11);
+        setVigor(5);
+        setCapacity(11);
+        setMotivity(11);
+        setTechnique(5);
+        setAdvance(6);
+        break;
+      case 1:
+        setVitality(8);
+        setVigor(12);
+        setCapacity(7);
+        setMotivity(5);
+        setTechnique(11);
+        setAdvance(6);
+        break;
+      case 2:
+        setVitality(9);
+        setVigor(7);
+        setCapacity(8);
+        setMotivity(9);
+        setTechnique(9);
+        setAdvance(9);
+        break;
+    }
+  }, [startingClass]);
 
   return (
     <main>
@@ -33,6 +70,15 @@ function BuildCalculator() {
         <div id="current-stats" className="calc-module">
           <h2>Current stats</h2>
           <div className="calc-items">
+            <SelectField
+              title="Starting Class"
+              options={[
+                "Path of the Sweeper: Strength",
+                "Path of the Bastard: Dexterity",
+                "Path of the Cricket: Balance",
+              ]}
+              onSelect={selectClass}
+            />
             <NumberInput
               name="Vitality"
               value={vitality}
