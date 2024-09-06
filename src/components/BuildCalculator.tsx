@@ -2,13 +2,25 @@ import { useEffect, useState } from 'react';
 import NumberInput from './NumberInput';
 import NumberOutput from './NumberOutput';
 
-import { calculateHP } from '../styles/calculations/statCalculations';
+import { calculateHP } from '../calculations/statCalculations';
 
 import '../styles/calculatorStyle.scss';
 
+const minVitality = 8;
+const minVigor = 5;
+const minCapacity = 7;
+const minMotivity = 5;
+const minTechnique = 5;
+const minAdvance = 6;
+
 function BuildCalculator() {
   const [hp, setHp] = useState(262);
-  const [vitality, setVitality] = useState(8);
+  const [vitality, setVitality] = useState(minVitality);
+  const [vigor, setVigor] = useState(minVigor);
+  const [capacity, setCapacity] = useState(minCapacity);
+  const [motivity, setMotivity] = useState(minMotivity);
+  const [technique, setTechnique] = useState(minTechnique);
+  const [advance, setAdvance] = useState(minAdvance);
 
   useEffect(() => {
     setHp(calculateHP(vitality))
@@ -25,13 +37,38 @@ function BuildCalculator() {
               name="Vitality"
               value={vitality}
               changeValue={setVitality}
-              min={8}
+              min={minVitality}
             />
-            <NumberInput name="Vigor" />
-            <NumberInput name="Capacity" />
-            <NumberInput name="Motivity" />
-            <NumberInput name="Technique" />
-            <NumberInput name="Advance" />
+            <NumberInput
+              name="Vigor"
+              value={vigor}
+              changeValue={setVigor}
+              min={minVigor}
+            />
+            <NumberInput
+              name="Capacity"
+              value={capacity}
+              changeValue={setCapacity}
+              min={minCapacity}
+            />
+            <NumberInput
+              name="Motivity"
+              value={motivity}
+              changeValue={setMotivity}
+              min={minMotivity}
+            />
+            <NumberInput
+              name="Technique"
+              value={technique}
+              changeValue={setTechnique}
+              min={minTechnique}
+            />
+            <NumberInput
+              name="Advance"
+              value={advance}
+              changeValue={setAdvance}
+              min={minAdvance}
+            />
           </div>
         </div>
         <div id="build-stats" className="calc-module">
