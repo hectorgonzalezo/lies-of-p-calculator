@@ -3,7 +3,7 @@ import NumberInput from './NumberInput';
 import NumberOutput from './NumberOutput';
 import SelectField from './SelectField';
 
-import { calculateHP } from '../calculations/statCalculations';
+import { calculateHP, calculateWeight } from '../calculations/statCalculations';
 
 import '../styles/calculatorStyle.scss';
 
@@ -16,6 +16,7 @@ const minAdvance = 6;
 
 function BuildCalculator() {
   const [hp, setHp] = useState(262);
+  const [weight, setWeight] = useState(61.2);
   const [vitality, setVitality] = useState(minVitality);
   const [vigor, setVigor] = useState(minVigor);
   const [capacity, setCapacity] = useState(minCapacity);
@@ -32,6 +33,10 @@ function BuildCalculator() {
   useEffect(() => {
     setHp(calculateHP(vitality))
   }, [vitality]);
+
+  useEffect(() => {
+    setWeight(calculateWeight(capacity))
+  }, [capacity]);
 
   // Change stat values when starting class changes
   useEffect(() => {
@@ -122,7 +127,7 @@ function BuildCalculator() {
           <div className="calc-items">
             <NumberOutput name="HP" value={hp} />
             <NumberOutput name="Stamina" value={0} />
-            <NumberOutput name="Weight" value={0} />
+            <NumberOutput name="Weight" value={weight} />
             <NumberOutput name="Legion" value={0} />
             <NumberOutput name="Guard Regain" value={0} />
           </div>
